@@ -12,6 +12,22 @@ def launch_example(port, name):
     allow_parallel=True,
   )
 
+stackblitz_port = 6174
+
+local_resource(
+  name='stackblitz',
+  serve_cmd='pnpm start',
+  serve_dir='stackblitz',
+  cmd='pnpm install && pnpm run generate',
+  dir='stackblitz',
+  serve_env={
+    'PORT': '%s' % stackblitz_port,
+  },
+  links=['http://localhost:%s' % stackblitz_port],
+  allow_parallel=True,
+  auto_init=False,
+)
+
 launch_example('6175', 'webchat-embed-controls')
 launch_example('6176', 'webchat-embed-custom-trigger')
 launch_example('6177', 'webchat-react-composer')

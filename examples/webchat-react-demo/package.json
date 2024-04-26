@@ -18,5 +18,8 @@
     "typescript": "^5.2.2",
     "vite": "^5.2.10"
   },
-  "packageManager": "^pnpm@8.13.0"
+  "packageManager": "^pnpm@8.13.0",
+  "stackblitz": {
+    "openFile": "src/App.tsx"
+  }
 }
