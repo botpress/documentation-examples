@@ -168,21 +168,24 @@
   </div>
 
   <script type="module">
-    const projects = await fetch('./examples/_projects.json').then(res => res.json()).catch((e) => {
-      console.error('Error fetching examples', e);
-    });
-
-    if (projects && projects.length) {
-      for (const project of projects) {
-        const a = document.createElement('a');
-        a.href = `?example=${project}`;
-        a.text = project;
-        document.querySelector('.links').appendChild(a);
-      }
-    }
-
     const urlParams = new URLSearchParams(window.location.search);
     const example = urlParams.get('example');
+
+    if (!example) {
+      const projects = await fetch('./examples/_projects.json').then(res => res.json()).catch((e) => {
+        console.error('Error fetching examples', e);
+      });
+
+      if (projects && projects.length) {
+        for (const project of projects) {
+          const a = document.createElement('a');
+          a.href = `?example=${project}`;
+          a.text = project;
+          a.target = '_blank';
+          document.querySelector('.links').appendChild(a);
+        }
+      }
+    }
 
     import sdk from 'https://unpkg.com/@stackblitz/sdk@1/bundles/sdk.m.js';
 
@@ -207,7 +210,7 @@
           template: 'node',
           files: data.files,
         },
-        data.options,
+        data.options
       );
     }
   </script>
