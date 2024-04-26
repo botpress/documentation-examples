@@ -8,7 +8,8 @@ def launch_example(port, name):
     serve_cmd='pnpm start',
     cmd='pnpm install',
     dir='examples/%s' % name,
-    links=['http://localhost:%s' % port]
+    links=['http://localhost:%s' % port],
+    allow_parallel=True,
   )
 
 launch_example('6175', 'webchat-embed-controls')
