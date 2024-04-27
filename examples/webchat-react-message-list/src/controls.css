@@ -1,0 +1,23 @@
+.controls {
+  z-index: 100;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.controls-btn {
+  background-color: #3b82f6;
+  color: white;
+  font-size: 14px;
+  padding: 8px 12px;
+  border-radius: 20px;
+  margin-right: 10px;
+}
+
+.controls-btn:hover {
+  background-color: #2563eb;
+}
