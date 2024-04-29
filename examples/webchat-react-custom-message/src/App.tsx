@@ -1,4 +1,4 @@
-import { MessageList, Container, WebchatProvider, getClient } from '@botpress/webchat';
+import { MessageList, Container, WebchatProvider, getClient, renderers } from '@botpress/webchat';
 
 import './style.css';
 import { theme } from './theme';
@@ -9,9 +9,10 @@ export default function App() {
   const client = getClient({ clientId });
 
   return (
-    <WebchatProvider client={client} theme={theme}>
+    <WebchatProvider client={client} theme={theme} renderers={renderers}>
       <Container>
-        <MessageList />
+        <MessageList  />
+        <h2 style={{ display: 'flex', justifyContent: 'center', fontSize: '40px', fontWeight: 'bold', color: '#666' }}>Coming Soon</h2>
       </Container>
     </WebchatProvider>
   );
