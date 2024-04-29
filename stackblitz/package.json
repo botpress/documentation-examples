@@ -1,0 +1,12 @@
+{
+  "scripts": {
+    "generate": "node generate.js",
+    "start": "servor --reload"
+  },
+  "dependencies": {
+    "glob": "10.3.12",
+    "servor": "^4.0.2"
+  },
+  "type": "module",
+  "packageManager": "^pnpm@8.13.0"
+}
