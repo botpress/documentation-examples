@@ -18,9 +18,8 @@
   </div>
 
   <script>
-    window.botpress.open()
-
     function sendEvent() {
+      window.botpress.open()
       window.botpress.sendEvent({
         type: 'webchat-embed-custom-trigger', // This is a random string that you can use to identify the trigger
       })
