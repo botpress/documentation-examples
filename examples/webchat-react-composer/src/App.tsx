@@ -1,4 +1,4 @@
-import { Webchat, WebchatProvider, getClient } from '@botpress/webchat';
+import { Container, MessageList, Composer, ComposerInput, ComposerButton, WebchatProvider, getClient } from '@botpress/webchat';
 
 import './style.css';
 import { theme } from './theme';
@@ -10,7 +10,13 @@ export default function App() {
 
   return (
     <WebchatProvider client={client} theme={theme}>
-      <Webchat />
+      <Container style={{ height: '100vh', display: 'flex', justifyContent: 'space-between' }}>
+        <MessageList />
+        <Composer>
+          <ComposerInput />
+          <ComposerButton />
+        </Composer>
+      </Container>
     </WebchatProvider>
   );
 }

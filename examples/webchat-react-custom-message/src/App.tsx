@@ -1,4 +1,4 @@
-import { Webchat, WebchatProvider, getClient } from '@botpress/webchat';
+import { MessageList, Container, WebchatProvider, getClient } from '@botpress/webchat';
 
 import './style.css';
 import { theme } from './theme';
@@ -10,7 +10,9 @@ export default function App() {
 
   return (
     <WebchatProvider client={client} theme={theme}>
-      <Webchat />
+      <Container>
+        <MessageList />
+      </Container>
     </WebchatProvider>
   );
 }

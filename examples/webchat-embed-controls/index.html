@@ -4,14 +4,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width" />
-  <link rel="stylesheet" href="styles.css" />
-  <script defer type="module" src="script.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body>
-  <button onclick="botpress.open()">Open</button>
-  <button onclick="botpress.close()">Close</button>
-  <button onclick="botpress.toggle()">Toggle</button>
+  <div class="gap-2 flex fixed bottom-0 m-6 z-20">
+    <button class="bg-blue-500 hover:bg-blue-600 text-white px-2 py-1 rounded" onclick="botpress.open()">Open</button>
+    <button class="bg-blue-500 hover:bg-blue-600 text-white px-2 py-1 rounded" onclick="botpress.close()">Close</button>
+    <button class="bg-blue-500 hover:bg-blue-600 text-white px-2 py-1 rounded"
+      onclick="botpress.toggle()">Toggle</button>
+    <button class="bg-blue-500 hover:bg-blue-600 text-white px-2 py-1 rounded"
+      onclick="botpress.config({ configuration: { botName: 'New Webchat Title', botDescription: 'Updated description' } })">Configure</button>
+  </div>
 
   <script src="https://cdn.botpress.cloud/webchat/v2/inject.js"></script>
   <script src="https://mediafiles.botpress.cloud/26a83f89-ace1-4045-92ba-95b836f75669/webchat/v2/config.js"></script>
