@@ -1,3 +1,5 @@
+update_settings(max_parallel_updates=9999)
+
 def launch_example(port, name):
   local_resource(
     name=name,
@@ -39,3 +41,4 @@ launch_example('6182', 'webchat-react-message-list')
 launch_example('6183', 'webchat-client')
 launch_example('6184', 'webchat-embed-user-data')
 launch_example('6185', 'webchat-theme-generator')
+launch_example('6186', 'webchat-embed-custom-init')

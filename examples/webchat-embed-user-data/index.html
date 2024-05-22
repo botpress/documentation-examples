@@ -5,44 +5,37 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width" />
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/faker@5.5.3/dist/faker.min.js"></script>
 </head>
 
 <body>
   <div class="gap-2 flex fixed bottom-0 m-6 z-20">
     <button class="bg-blue-500 hover:bg-blue-600 text-white px-2 py-1 rounded" onclick="showUserData()">Show User
       Data</button>
+    <button class="bg-blue-500 hover:bg-blue-600 text-white px-2 py-1 rounded" onclick="randUserData()">Set Random User
+      Data</button>
   </div>
 
   <script src="https://cdn.botpress.cloud/webchat/v2/inject.js"></script>
+  <script src="https://mediafiles.botpress.cloud/26a83f89-ace1-4045-92ba-95b836f75669/webchat/v2/config.js"></script>
 
   <script defer>
     async function showUserData() {
       window.botpress.open()
       window.botpress.sendEvent({
-        type: 'user-data', // This is an arbitrary event type
+        type: 'user-data', // This is an arbitrary event type that is used to identify the event in the bot
       })
     }
 
-    async function init() {
-      const theme = await fetch('https://mediafiles.botpress.cloud/26a83f89-ace1-4045-92ba-95b836f75669/webchat/v2/theme.json').then(response => response.json())
-
-      window.botpress.init({
-        "theme": theme,
-        "clientId": "07657133-e358-45ea-b49e-f1eed1f6c698",
-        "botId": "26a83f89-ace1-4045-92ba-95b836f75669",
-        "style": "https://mediafiles.botpress.cloud/26a83f89-ace1-4045-92ba-95b836f75669/webchat/v2/style.css",
-        "configuration": {},
-        "user": {
-          "data": {
-            "firstName": "John",
-            "lastName": "Doe",
-            "email": "john.doe@example.com"
-          }
+    async function randUserData() {
+      botpress.updateUser({
+        "data": {
+          "firstName": faker.name.firstName(),
+          "lastName": faker.name.lastName(),
+          "email": faker.internet.email(),
         }
       })
     }
-
-    init()
   </script>
 </body>
 

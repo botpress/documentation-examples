@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+  <div class="gap-2 flex fixed bottom-0 m-6 z-20">
+    <button class="bg-blue-500 hover:bg-blue-600 text-white px-2 py-1 rounded" onclick="showUserData()">Show User
+      Data</button>
+  </div>
+
+  <script src="https://cdn.botpress.cloud/webchat/v2/inject.js"></script>
+
+  <script defer>
+    async function showUserData() {
+      window.botpress.open()
+      window.botpress.sendEvent({
+        type: 'user-data', // This is an arbitrary event type
+      })
+    }
+
+    async function init() {
+      const theme = await fetch('https://mediafiles.botpress.cloud/26a83f89-ace1-4045-92ba-95b836f75669/webchat/v2/theme.json').then(response => response.json())
+
+      window.botpress.init({
+        "theme": theme,
+        "clientId": "07657133-e358-45ea-b49e-f1eed1f6c698",
+        "botId": "26a83f89-ace1-4045-92ba-95b836f75669",
+        "style": "https://mediafiles.botpress.cloud/26a83f89-ace1-4045-92ba-95b836f75669/webchat/v2/style.css",
+        "configuration": {
+          "botDescription": "This is a Webchat demo bot.",
+          "botName": "Webchat Demo",
+          "composerPlaceholder": "Chat with me!",
+          "email": {
+            "title": "contact@botpress.com",
+            "link": "mailto:contact@botpress.com"
+          },
+          "phone": {
+            "title": "555 555 555",
+            "link": "tel:555 555 555"
+          },
+          "privacyPolicy": {
+            "title": "Privacy policy",
+            "link": "https://botpress.com/legal/privacy-statement"
+          },
+          "termsOfService": {
+            "title": "Terms of service",
+            "link": "https://botpress.com/legal/terms-of-service"
+          },
+          "website": {
+            "title": "https://botpress.com",
+            "link": "https://botpress.com"
+          }
+        },
+        "user": {
+          "data": {
+            "firstName": "John",
+            "lastName": "Doe",
+            "email": "john.doe@example.com"
+          }
+        }
+      })
+    }
+
+    init()
+  </script>
+</body>
+
+</html>

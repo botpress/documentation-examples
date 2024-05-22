@@ -1,0 +1,12 @@
+{
+  "scripts": {
+    "start": "servor --reload"
+  },
+  "dependencies": {
+    "servor": "^4.0.2"
+  },
+  "packageManager": "^pnpm@8.13.0",
+  "stackblitz": {
+    "openFile": "index.html"
+  }
+}
