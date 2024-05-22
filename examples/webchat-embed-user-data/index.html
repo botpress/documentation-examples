@@ -5,6 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width" />
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/faker@5.5.3/dist/faker.min.js"></script>
 </head>
 
 <body>
@@ -22,16 +23,16 @@
     async function showUserData() {
       window.botpress.open()
       window.botpress.sendEvent({
-        type: 'user-data', // This is an arbitrary event type
+        type: 'user-data', // This is an arbitrary event type that is used to identify the event in the bot
       })
     }
 
     async function randUserData() {
-      botpress.config({
-        "user": {
-          "firstName": 'Bob',
-          "lastName": 'Marley',
-          "email": 'bob.marley@example.com'
+      botpress.updateUser({
+        "data": {
+          "firstName": faker.name.firstName(),
+          "lastName": faker.name.lastName(),
+          "email": faker.internet.email(),
         }
       })
     }
