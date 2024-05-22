@@ -1,3 +1,5 @@
+update_settings(max_parallel_updates=9999)
+
 def launch_example(port, name):
   local_resource(
     name=name,

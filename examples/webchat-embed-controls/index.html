@@ -15,6 +15,13 @@
       onclick="botpress.toggle()">Toggle</button>
     <button class="bg-blue-500 hover:bg-blue-600 text-white px-2 py-1 rounded"
       onclick="botpress.config({ configuration: { botName: 'New Webchat Title', botDescription: 'Updated description' } })">Configure</button>
+    <button class="bg-blue-500 hover:bg-blue-600 text-white px-2 py-1 rounded" onclick="botpress.sendEvent({
+        type: 'event-sent', // This is an arbitrary event type
+     })">Send
+      Event</button>
+    <button class="bg-blue-500 hover:bg-blue-600 text-white px-2 py-1 rounded"
+      onclick="botpress.sendMessage('Hi! My name is John.')">Send
+      Message</button>
   </div>
 
   <script src="https://cdn.botpress.cloud/webchat/v2/inject.js"></script>
