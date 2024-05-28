@@ -1,0 +1,21 @@
+{
+  "name": "webchat-template",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "start": "ts-node -T src/main.ts"
+  },
+  "dependencies": {
+    "@botpress/chat": "0.4.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.79",
+    "@types/react-dom": "^18.2.25",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.2.2"
+  },
+  "packageManager": "^pnpm@8.13.0",
+  "stackblitz": {
+    "openFile": "src/main.ts"
+  }
+}
