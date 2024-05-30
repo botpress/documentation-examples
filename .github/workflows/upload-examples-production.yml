@@ -1,0 +1,32 @@
+name: Upload Examples Production
+on:
+  workflow_dispatch: {}
+  push:
+    branches:
+      - master
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  upload_examples:
+    name: Upload Examples
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build
+        working-directory: stackblitz
+        run: |
+          pnpm i
+          pnpm run generate
+
+      - name: Upload to S3
+        uses: botpress/gh-actions/deploy/s3@v2
+        with:
+          aws-role: ${{ secrets.AW_UPLOAD_ROLE }}
+          source: ./stackblitz/examples
+          destination: s3://${{ secrets.AWS_BUCKET }}/documentation-examples
+          cloudfront-distribution-id: ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION_ID }}
+          cloudfront-invalidation-prefix: /documentation-examples/*
