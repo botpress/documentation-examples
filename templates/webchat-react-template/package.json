@@ -9,7 +9,7 @@
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "@botpress/webchat": "1.3.5"
+    "@botpress/webchat": "1.3.12"
   },
   "devDependencies": {
     "@types/react": "^18.2.79",
