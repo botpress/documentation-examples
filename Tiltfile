@@ -14,15 +14,11 @@ def launch_example(port, name):
     allow_parallel=True,
   )
 
-def run_example(port, name):
+def run_example(name):
   local_resource(
     name=name,
-    env={
-      'PORT': port
-    },
     dir='examples/%s' % name,
     cmd='pnpm install && pnpm start',
-    links=['http://localhost:%s' % port],
     allow_parallel=True,
   )
 
@@ -54,5 +50,6 @@ launch_example('6183', 'webchat-client')
 launch_example('6184', 'webchat-embed-user-data')
 launch_example('6185', 'webchat-theme-generator')
 launch_example('6186', 'webchat-embed-custom-init')
-run_example('6187', 'chat-client')
 launch_example('6188', 'webchat-embed-event')
+
+run_example('chat-client')
