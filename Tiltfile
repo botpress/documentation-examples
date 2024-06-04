@@ -14,6 +14,14 @@ def launch_example(port, name):
     allow_parallel=True,
   )
 
+def run_example(name):
+  local_resource(
+    name=name,
+    dir='examples/%s' % name,
+    cmd='pnpm install && pnpm start',
+    allow_parallel=True,
+  )
+
 stackblitz_port = 6174
 
 local_resource(
@@ -42,4 +50,6 @@ launch_example('6183', 'webchat-client')
 launch_example('6184', 'webchat-embed-user-data')
 launch_example('6185', 'webchat-theme-generator')
 launch_example('6186', 'webchat-embed-custom-init')
-launch_example('6187', 'chat-client')
+launch_example('6188', 'webchat-embed-event')
+
+run_example('chat-client')

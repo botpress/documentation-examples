@@ -1,4 +1,4 @@
-import { Container, Header, WebchatProvider, getClient } from '@botpress/webchat';
+import { Container, Header, WebchatProvider, useClient } from '@botpress/webchat';
 
 import './style.css';
 import { theme } from './theme';
@@ -33,7 +33,7 @@ const configuration = {
 }
 
 export default function App() {
-  const client = getClient({ clientId });
+  const client = useClient({ clientId });
 
   return (
     <WebchatProvider client={client} theme={theme} configuration={configuration}>
