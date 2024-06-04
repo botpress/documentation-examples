@@ -1,4 +1,4 @@
-import { Composer, ComposerButton, ComposerInput, Container, Fab, MessageList, WebchatProvider, getClient } from '@botpress/webchat';
+import { Composer, ComposerButton, ComposerInput, Container, Fab, MessageList, WebchatProvider, useClient } from '@botpress/webchat';
 
 import './style.css';
 import { theme } from './theme';
@@ -7,7 +7,7 @@ import { useState } from 'react';
 const clientId = '07657133-e358-45ea-b49e-f1eed1f6c698';
 
 export default function App() {
-  const client = getClient({ clientId });
+  const client = useClient({ clientId });
 
   const [open, setOpen] = useState(false);
 
